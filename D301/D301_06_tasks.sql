@@ -18,7 +18,7 @@ select *
       apex_approval.get_tasks (
           p_context            => 'INITIATED_BY_ME',
           p_show_expired_tasks => :P6_SHOW_EXPIRED ) )
- where app_id = :APP_ID
+ where details_app_id = :APP_ID
 
 
 
@@ -29,7 +29,7 @@ select d.*,
     on t.task_id = a.task_id and t.application_id = a.app_id
   join d301_documento d 
     on t.detail_pk = d.id
- where a.app_id = :APP_ID
+ where details_app_id = :APP_ID
 
 
 select app_id,
@@ -45,4 +45,4 @@ select app_id,
        badge_css_classes,
        badge_text
   from table (apex_approval.get_tasks ('INITIATED_BY_ME')) 
- where app_id = :APP_ID
+ where details_app_id = :APP_ID
