@@ -21,5 +21,5 @@
    and aclr.application_id = v('APP_ID');
 
 /*
-
+ where created_by = :APP_USER or user_name = :APP_USER
 */
