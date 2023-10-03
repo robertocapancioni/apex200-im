@@ -1,1 +1,2 @@
 --FLOW_INSTANCE_DETAILS_VW
+--prcs_id = :PROCESS_ID
