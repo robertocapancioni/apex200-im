@@ -22,8 +22,10 @@
    and aclr.application_id = v('APP_ID');
 
 /*
+ usare questa condizione nella vista
  where created_by = :APP_USER or user_name = :APP_USER
 */
-
---    <span class="fa fa-edit" aria-hidden="true" #LINK_STYLE!RAW#></span>
-
+/*
+usare #LINK_STYLE!RAW# nell attributo dell'iconcina al link documento ad esempio
+    <span class="fa fa-edit" aria-hidden="true" #LINK_STYLE!RAW#></span>
+*/
