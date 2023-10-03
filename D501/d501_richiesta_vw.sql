@@ -8,6 +8,7 @@
      , r.created_by
      , r.created
      , case when aclr.user_name = v('APP_USER') then tibx.link_text else null end as link_text
+     , case when aclr.user_name = v('APP_USER') then 'style="display: block"' else 'style="display: none"' end as link_style
      , inst.prcs_id
      , aclr.user_name
   from d501_richiesta r
@@ -23,3 +24,6 @@
 /*
  where created_by = :APP_USER or user_name = :APP_USER
 */
+
+--    <span class="fa fa-edit" aria-hidden="true" #LINK_STYLE!RAW#></span>
+
