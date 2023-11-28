@@ -58,4 +58,5 @@ CREATE OR REPLACE FORCE EDITIONABLE VIEW D601_TASK_INBOX_VW AS
        and p2.prov_var_type = 'NUMBER' 
        and p2.prov_scope = 0
      where sbfl_status = 'running'
+       and sbfl_dgrm_name = 'D601 Documento'
 with read only;
