@@ -1,4 +1,4 @@
-CREATE OR REPLACE FORCE EDITIONABLE VIEW d601_utente_gruppo_vw as
+create or replace force editionable view d601_utente_gruppo_vw as
   select ug.id,
          d.dipartimento,
          g.gruppo,
@@ -6,7 +6,8 @@ CREATE OR REPLACE FORCE EDITIONABLE VIEW d601_utente_gruppo_vw as
          upper(u.utente)utente,
          u.nome,
          u.email
-  from d601_gruppo g 
+  from d601_utente_gruppo ug 
+  join d601_gruppo g on ug.gruppo_id = g.id
+  join d601_utente u on ug.utente_id = u.id
   join d601_dipartimento d on g.dipartimento_id = d.id
-  join d601_utente_gruppo ug on g.id = ug.gruppo_id
-  join d601_utente u on ug.gruppo_id = u.id;
+  
