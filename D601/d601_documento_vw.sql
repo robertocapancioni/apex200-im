@@ -17,7 +17,7 @@ select distinct
 left join flow_instances_vw inst
        on d.id = to_number(inst.prcs_business_ref default -1 on conversion error) and inst.dgrm_name = 'D601 Documento'
 left join d601_task_inbox_vw tibx
-       on d.id = to_number(tibx.sbfl_business_ref default -1 on conversion error) and tibx.sbfl_dgrm_name = 'D601 Documento'
+       on d.id = to_number(tibx.sbfl_business_ref default -1 on conversion error)
 left join d601_gruppo_approvatore_vw ga on d.id = ga.documento_id
                                        and tibx.SBFL_POTENTIAL_GROUPS = ga.gruppo
                                        and ga.utente = v('APP_USER');
