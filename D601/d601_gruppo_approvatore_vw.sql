@@ -1,7 +1,10 @@
 create or replace view d601_gruppo_approvatore_vw as
   select ga.id,
+         ga.documento_id,
+         ga.gruppo_id,
          ga.ordine,
          d.dipartimento,
+         g.dipartimento_id,
          g.gruppo,
          g.gruppo_des,
          upper(u.utente)utente,
