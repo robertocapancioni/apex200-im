@@ -1,5 +1,5 @@
   create or replace force editionable view "D601_DOCUMENTO_VW"  as 
-  select distinct
+    select distinct
             d.id
           , d.codice
           , d.descrizione
