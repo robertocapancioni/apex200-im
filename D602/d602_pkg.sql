@@ -1,6 +1,7 @@
 create or replace package d602_pkg as  
     function utenti_da_gruppo(p_gruppo   varchar2) return varchar2;  
     function utenti_da_ordine(p_documento_id number, p_ordine number) return varchar2;
+    function livello_max(p_documento_id number) return number;
     function insert_task_log (p_task_id number) return varchar2; 
 end;  
 /
@@ -27,6 +28,16 @@ create or replace package body d602_pkg as
          return l_utenti;  
     end utenti_da_ordine;  
   
+function livello_max(p_documento_id number) return number
+    is  
+    l_livello_max number;  
+    begin  
+      select count(*) into l_livello_max 
+        from D601_GRUPPO_APPROVATORE_VW ga
+       where ga.documento_id = p_documento_id;   
+         return l_livello_max;  
+    end livello_max;  
+
  function insert_task_log (p_task_id number) return varchar2 
  is 
  l_document_id  number; 
