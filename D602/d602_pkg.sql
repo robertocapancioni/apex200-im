@@ -22,7 +22,7 @@ create or replace package body d602_pkg as
     l_utenti varchar2(100);  
     begin  
       select listagg(utente,',') within group (order by utente) utenti into l_utenti  
-        from D601_GRUPPO_APPROVATORE_VW ga
+        from D602_GRUPPO_APPROVATORE_VW ga
        where ga.documento_id = p_documento_id 
          and ga.ordine = p_ordine;   
          return l_utenti;  
@@ -32,8 +32,8 @@ function livello_max(p_documento_id number) return number
     is  
     l_livello_max number;  
     begin  
-      select count(*) into l_livello_max 
-        from D601_GRUPPO_APPROVATORE_VW ga
+      select count(distinct ga.id) into l_livello_max 
+        from D602_GRUPPO_APPROVATORE_VW ga
        where ga.documento_id = p_documento_id;   
          return l_livello_max;  
     end livello_max;  
